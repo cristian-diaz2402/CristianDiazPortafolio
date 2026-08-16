@@ -54,6 +54,6 @@ const infraSkills = ref([
   { id: 3, role: 'Ubuntu Linux — Administración de Servidores', icon: 'lucide:terminal' },
   { id: 4, role: 'Nginx & Proxy Inverso', icon: 'lucide:server' },
   { id: 5, role: 'vLLM & Ollama — Inferencia Local de LLMs', icon: 'lucide:brain-circuit' },
-  { id: 6, role: 'Render & Netlify — Despliegues en la Nube', icon: 'lucide:cloud-upload' },
+  { id: 6, role: 'Render, Netlify & VPS (Hostinger) — Despliegues en la Nube', icon: 'lucide:cloud-upload' },
 ]);
 </script>
