@@ -1,62 +1,74 @@
 <template>
-    <section class="relative w-full" data-aos="zoom-in-up">
-        <div class="absolute top-0 inset-x-0 h-64 flex items-start">
-            <div class="h-24 w-2/3 bg-gradient-to-br from-[#570cac] blur-2xl invisible opacity-40"></div>
-            <div class="h-20 w-3/5 bg-gradient-to-r from-[#670ccf] opqcity-40 blur-2xl"></div>
+  <section class="relative w-full min-h-screen flex items-center" data-aos="zoom-in-up">
+    <div class="absolute top-0 inset-x-0 h-64 flex items-start pointer-events-none">
+      <div class="h-24 w-2/3 blur-3xl opacity-20 bg-gradient-to-br from-primary to-secondary"></div>
+      <div class="h-20 w-3/5 blur-3xl opacity-15 bg-gradient-to-r from-secondary to-primary"></div>
+    </div>
+
+    <div class="w-full px-5 sm:px-8 md:px-12 lg:px-8 max-w-screen-lg lg:max-w-screen-xl mx-auto relative">
+      <div class="grid lg:grid-cols-2 gap-10 xl:gap-14 lg:max-w-none max-w-2xl md:max-w-3xl mx-auto">
+
+        <div class="lg:py-6 flex flex-col justify-center">
+
+          <h1 class="font-syne font-bold text-4xl md:text-5xl lg:text-6xl text-dark leading-tight">
+            Cristian Díaz
+            <span class="block text-primary text-2xl md:text-3xl lg:text-4xl mt-2">Frontend Developer · Calidad E2E</span>
+          </h1>
+
+          <div class="flex flex-wrap gap-2 mt-5">
+            <span class="font-inter text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">Vue.js</span>
+            <span class="font-inter text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">React</span>
+            <span class="font-inter text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">Playwright</span>
+            <span class="font-inter text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">GitHub Actions</span>
+            <span class="font-inter text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">FastAPI</span>
+          </div>
+
+          <p class="font-inter pt-6 text-justify max-w-xl text-muted leading-relaxed">
+            Ingeniero en Ciencias de la Computación recién egresado de la EPN, con dos años de experiencia real en producción en Wanqara. Desarrollé módulos frontend activos con Vue.js y tomé ownership de la suite E2E completa con Playwright: arquitectura de tests, pipelines de CI en GitHub Actions y resolución de race conditions entre entornos. Me especializo en construir interfaces sólidas y en garantizar que lleguen a producción sin errores.
+          </p>
+
+          <div class="flex items-center gap-4 pt-8 flex-col sm:flex-row">
+            <a href="#projects"
+              class="flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-inter font-medium hover:opacity-80 transition-all duration-300">
+              <Icon icon="lucide:folder-open" width="18" />
+              Ver Proyectos
+            </a>
+            <a href="/HojaDeVidaProfesion.pdf" download="DiazCristianCurriculum.pdf"
+              class="flex items-center gap-2 px-6 py-3 rounded-full border border-primary text-primary font-inter font-medium hover:bg-primary hover:text-white transition-all duration-300">
+              <Icon icon="lucide:download" width="18" />
+              Descargar CV
+            </a>
+          </div>
+
+          <div class="flex items-center gap-5 pt-8">
+            <a href="https://github.com/cristian-diaz2402" target="_blank" class="text-muted hover:text-primary transition-colors duration-300">
+              <Icon icon="lucide:github" width="22" />
+            </a>
+            <a href="https://www.linkedin.com/in/cristian-diaz-50ab862aa" target="_blank" class="text-muted hover:text-primary transition-colors duration-300">
+              <Icon icon="lucide:linkedin" width="22" />
+            </a>
+            <a href="mailto:dannycriss12@gmail.com" class="text-muted hover:text-primary transition-colors duration-300">
+              <Icon icon="lucide:mail" width="22" />
+            </a>
+          </div>
         </div>
-        <div class="w-full px-5 sm:px-8 md:px-12 lg:px-8 max-w-screen-lg lg:max-w-screen-xl mx-auto relative">
-            <div class="grid lg:grid-cols-2 gap-10 xl:gap-14 relative pt-24 lg:max-w-none max-w-2xl md:max-w-3xl mx-auto">
-                <div class="lg:py-6">
-                    <div class="text-center lg:text-left">
-                        <h1 class="pt-4 text-white font-bold text-4xl md:text-5xl lg:text-6xl">
-                            Mi nombre es <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-pink-500">
-                                Cristian Díaz
-                            </span>
-                        </h1>
-                    </div>
-                    <p class="text-gray-300 pt-8 text-justify mx-auto max-w-xl">
-                        Soy estudiante de Ingeniería en Ciencias de la Computación con un fuerte interés en el desarrollo de software. Busco una oportunidad para aplicar mis conocimientos en programación y aprender en un entorno profesional. Estoy comprometido con el desarrollo continuo y la mejora de mis habilidades técnicas y de trabajo en equipo.
-                    </p>
-                    <div class="flex items-center gap-3 pt-9 flex-col sm:flex-row sm:w-max sm:mx-auto lg:mx-0">
-<!--                       <button class="px-6 md:px-7 py-3 rounded-full relative group w-full sm:w-max flex justify-center">
-                            <span class="absolute inset-0 rounded-3xl group-hover:scale-105 origin-center transition-all ease-in-out bg-primary
-                            border-2 border-transparent"></span>
-                            <span class="relative flex items-center justify-center text-white">Hire Me</span>
-                        </button> -->
-                        <button class=" border border-primary px-6 md:px-7 py-3 rounded-full relative group w-full sm:w-max flex justify-center">
-                            <div class="hover:scale-105 transition-all ease-in-out flex justify-center items-center relative">
-                            <div class="svg-container">
-                                <svg class="download-icon" width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                                    <path class="download-arrow" d="M13 9L9 13M9 13L5 9M9 13V1" stroke="#f59e0b"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    />
-                                    <path d="M1 17V18C1 18.7956 1.31607 19.5587 1.87868 20.1213C2.44129
-                                    20.6839 3.20435 21 4 21H14C14.7956 21 15.5587 20.6839 16.1213
-                                    20.1213C16.6839 19.5587 17 18.7956 17 18V17"
-                                    stroke="#f59e0b" stroke-width="2" stroke-linecap="round" />
-                                </svg>
-                                <div class="download-loader text-white hidden"></div>
-                            </div>
-                            <a href="/HojaDeVidaProfesion.pdf" download="DiazCristianCurriculum.pdf" class="pl-2 text-primary"> Descarga mi curriculum</a>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-                <div class="lg:h-full md:flex">
-                    <div class="flex w-full h-96 min-h-[24rem] lg:min-h-[none] lg:w-full lg:h-full items-center relative">
-                        <div class="absolute z-0 top-1/2 -translate-y-1/2 w-5/6 right-0 h-[calc(80%+20px)] bg-gradient-to-tr opacity-25 from-[#570cac] to-primary blur-2xl"></div>
-                        <div class="absolute h-full z-10 p-2 -translate-y-1/2 top-1/2 lg:right-3 md:right-40 sm:right-16 rounded-full shadow-lg border border-primary">
-                            <img src="https://c1.klipartz.com/pngpicture/823/765/sticker-png-login-icon-system-administrator-user-user-profile-icon-design-avatar-face-head.png" alt="Hero pic" width="500" height="auto" loading="lazy"
-                            class="w-full h-full rounded-full object-cover"
-                            >
-                        </div>
-                    </div>
-                </div>
+
+        <div class="flex items-center justify-center">
+          <div class="relative w-72 h-72 lg:w-96 lg:h-96">
+            <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-primary to-secondary opacity-10 blur-2xl"></div>
+            <div class="relative w-full h-full rounded-full border-2 border-primary/30 overflow-hidden shadow-xl bg-surface flex items-center justify-center">
+              <span class="font-syne font-bold text-7xl lg:text-9xl text-primary select-none">CD</span>
             </div>
+          </div>
         </div>
-    </section>
+
+      </div>
+    </div>
+  </section>
 </template>
+
 <script setup>
+import { Icon } from '@iconify/vue';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 AOS.init();
