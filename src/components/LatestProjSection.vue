@@ -22,20 +22,21 @@
       <div v-for="project in filteredProjects" :key="project.id"
         class="rounded-2xl bg-surface border border-muted/20 shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 flex flex-col">
 
-        <div class="h-64 relative overflow-hidden bg-background shrink-0">
+        <div class="relative overflow-hidden bg-background shrink-0">
 
           <template v-if="!project.videoActive">
-            <div
-              v-for="(image, index) in project.images"
-              :key="index"
-              class="absolute inset-0 bg-center bg-cover bg-no-repeat transition-opacity duration-1000"
-              :style="{
-                backgroundImage: `url(${image})`,
-                opacity: index === project.currentImageIndex ? 1 : 0,
-                transform: index === project.currentImageIndex ? 'scale(1.03)' : 'scale(1)',
-                transition: 'opacity 1s ease, transform 6s ease'
-              }"
-            ></div>
+            <div class="relative w-full" style="padding-top: 56.25%;">
+              <div
+                v-for="(image, index) in project.images"
+                :key="index"
+                class="absolute inset-0 bg-center bg-contain bg-no-repeat transition-opacity duration-1000"
+                :style="{
+                  backgroundImage: `url(${image})`,
+                  opacity: index === project.currentImageIndex ? 1 : 0,
+                  transition: 'opacity 1s ease'
+                }"
+              ></div>
+            </div>
 
             <div v-if="project.isAcademic" class="absolute top-3 left-3 z-10">
               <span class="font-inter text-xs px-2.5 py-1 rounded-full bg-dark/70 text-white font-medium backdrop-blur-sm">
