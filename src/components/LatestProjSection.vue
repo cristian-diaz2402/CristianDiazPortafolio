@@ -316,6 +316,32 @@ const Projects = ref([
     isAcademic: true,
     hasDemo: false,
   },
+  {
+    id: 9, 
+    category: 'Web',
+    images: [
+      'https://res.cloudinary.com/dbvywv8op/image/upload/v1787152580/home_mdljft.png',
+      'https://res.cloudinary.com/dbvywv8op/image/upload/v1787152580/login_p53iax.png',
+      'https://res.cloudinary.com/dbvywv8op/image/upload/v1787152580/carrito_sg5ubk.png',
+      'https://res.cloudinary.com/dbvywv8op/image/upload/v1787152581/crear-cuenta_edxws8.png',
+      'https://res.cloudinary.com/dbvywv8op/image/upload/v1787152581/pasarela_hponfy.png',
+      'https://res.cloudinary.com/dbvywv8op/image/upload/v1787152581/mis-compras_hvevzv.png',
+      'https://res.cloudinary.com/dbvywv8op/image/upload/v1787152581/g-admin_qfwo7y.png',
+      'https://res.cloudinary.com/dbvywv8op/image/upload/v1787152580/g-productos_brrzhd.png',
+      'https://res.cloudinary.com/dbvywv8op/image/upload/v1787152580/crear-producto_qvi4rd.png',
+      'https://res.cloudinary.com/dbvywv8op/image/upload/v1787152580/auditoria_mpbgrm.png',
+    ],
+    currentImageIndex: 0,
+    videoActive: false,
+    title: 'Shoplight — E-commerce Cloud & EDA',
+    description: 'E-commerce cloud-native donde el reto fue superar las limitaciones de escalabilidad de un modelo síncrono. Adopté una Arquitectura Orientada a Eventos (EDA) usando Amazon SQS como buffer para absorber picos de órdenes sin pérdida de datos, y SNS para aislar las alertas de inventario crítico. Confiné PostgreSQL Multi-AZ en subredes privadas (VPC) por seguridad, y usé DynamoDB para garantizar un Kardex de auditoría inmutable de baja latencia. Delegué el auto-etiquetado visual a Amazon Rekognition para no sobrecargar el backend (Node.js/Docker). La resiliencia de la infraestructura en Elastic Beanstalk fue comprobada mediante Chaos Testing, demostrando recuperación automática ante caídas sin interrumpir el servicio.',
+    technologies: ['Vue 3', 'Node.js', 'Prisma', 'AWS (VPC, EC2, RDS, S3)', 'SQS & SNS', 'DynamoDB', 'Rekognition', 'Docker'],
+    gitURL: 'https://github.com/cristian-diaz2402/ShoplightAWS.git',
+    webURL: null, 
+    videoURL: null,
+    isAcademic: true,
+    hasDemo: false,
+  }
 ]);
 
 const intervalMap = new Map();
