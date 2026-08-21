@@ -1,5 +1,6 @@
 <template>
   <section class="relative w-full min-h-screen flex items-center" data-aos="zoom-in-up">
+    <!-- Fondos difuminados -->
     <div class="absolute top-0 inset-x-0 h-64 flex items-start pointer-events-none">
       <div class="h-24 w-2/3 blur-3xl opacity-20 bg-gradient-to-br from-primary to-secondary"></div>
       <div class="h-20 w-3/5 blur-3xl opacity-15 bg-gradient-to-r from-secondary to-primary"></div>
@@ -27,12 +28,14 @@
             Ingeniero en Ciencias de la Computación recién egresado de la EPN, con dos años de experiencia real en producción en Wanqara. Desarrollé módulos frontend activos con Vue.js y tomé ownership de la suite E2E completa con Playwright: arquitectura de tests, pipelines de CI en GitHub Actions y resolución de race conditions entre entornos. Me especializo en construir interfaces sólidas y en garantizar que lleguen a producción sin errores.
           </p>
 
+          <!-- Botones -->
           <div class="flex items-center gap-4 pt-8 flex-col sm:flex-row">
             <a href="#projects"
               class="flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-inter font-medium hover:opacity-80 transition-all duration-300">
               <Icon icon="lucide:folder-open" width="18" />
               Ver Proyectos
             </a>
+            <!-- Asegúrate de haber movido tu PDF a la carpeta public/ -->
             <a href="/HojaDeVidaProfesion.pdf" download="DiazCristianCurriculum.pdf"
               class="flex items-center gap-2 px-6 py-3 rounded-full border border-primary text-primary font-inter font-medium hover:bg-primary hover:text-white transition-all duration-300">
               <Icon icon="lucide:download" width="18" />
@@ -53,11 +56,17 @@
           </div>
         </div>
 
+        <!-- Columna de Imagen de Perfil -->
         <div class="flex items-center justify-center">
           <div class="relative w-72 h-72 lg:w-96 lg:h-96">
             <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-primary to-secondary opacity-10 blur-2xl"></div>
+            
             <div class="relative w-full h-full rounded-full border-2 border-primary/30 overflow-hidden shadow-xl bg-surface flex items-center justify-center">
-              <span class="font-syne font-bold text-7xl lg:text-9xl text-primary select-none">CD</span>
+              <img 
+                src="/perfil2.png" 
+                alt="Fotografía de Cristian Díaz" 
+                class="w-full h-full object-cover object-center"
+              />
             </div>
           </div>
         </div>
@@ -71,5 +80,7 @@
 import { Icon } from '@iconify/vue';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+
+// Inicializa las animaciones
 AOS.init();
 </script>
