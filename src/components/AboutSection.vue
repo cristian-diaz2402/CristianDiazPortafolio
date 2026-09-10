@@ -4,22 +4,22 @@
 
       <div data-aos="fade-right">
         <h2 class="font-syne text-4xl font-bold text-dark mb-6">
-          <span class="text-primary">Sobre</span> mí
+          {{ $t('about.title') }}
         </h2>
         <p class="font-inter text-muted leading-relaxed mb-4">
-          Recién egresado de Ingeniería en Ciencias de la Computación en la EPN, con dos años de experiencia real en Wanqara desarrollando módulos frontend en producción y siendo responsable de la infraestructura de calidad del equipo: suite E2E con Playwright, pipelines de CI en GitHub Actions y resolución de race conditions entre entornos.
+          {{ $t('about.p1') }}
         </p>
         <p class="font-inter text-muted leading-relaxed mb-4">
-          Para mi tesis construí un asistente académico con arquitectura RAG desplegado en Linux con Nginx y SSL. Elegí RAG sobre fine-tuning porque los reglamentos institucionales cambian con frecuencia y actualizar embeddings en Qdrant es trivial frente a re-entrenar un modelo. El sistema soportó 26.000 consultas concurrentes sin fallos y 23 ms de latencia en caché con Redis.
+          {{ $t('about.p2') }}
         </p>
         <p class="font-inter text-muted leading-relaxed">
-          Busco un primer rol donde pueda seguir desarrollando interfaces y contribuir a la calidad del software desde el inicio del ciclo, no como afterthought.
+          {{ $t('about.p3') }}
         </p>
       </div>
 
       <div data-aos="fade-left">
         <h2 class="font-syne text-4xl font-bold text-dark mb-6">
-          <span class="text-primary">Formación</span> & Datos
+          {{ $t('about.title2') }}
         </h2>
 
         <div class="flex items-center gap-4 mb-6">
@@ -29,28 +29,28 @@
             class="h-10 w-auto object-contain shrink-0"
           />
           <div>
-            <p class="font-syne text-sm font-semibold text-primary uppercase leading-snug">Escuela Politécnica Nacional</p>
-            <p class="font-inter text-sm text-dark">Ingeniería en Ciencias de la Computación</p>
-            <p class="font-inter text-xs text-muted mt-0.5">Graduado — Agosto 2026</p>
+            <p class="font-syne text-sm font-semibold text-primary uppercase leading-snug">{{ $t('about.edu_inst') }}</p>
+            <p class="font-inter text-sm text-dark">{{ $t('about.edu_degree') }}</p>
+            <p class="font-inter text-xs text-muted mt-0.5">{{ $t('about.edu_date') }}</p>
           </div>
         </div>
 
         <div class="grid grid-cols-2 gap-3">
           <div class="rounded-2xl bg-surface border border-muted/20 shadow-sm px-4 py-4 flex flex-col gap-1">
             <span class="font-syne text-2xl font-bold text-primary">2+</span>
-            <span class="font-inter text-xs text-muted leading-snug">años en producción real</span>
+            <span class="font-inter text-xs text-muted leading-snug">{{ $t('about.metrics.m1') }}</span>
           </div>
           <div class="rounded-2xl bg-surface border border-muted/20 shadow-sm px-4 py-4 flex flex-col gap-1">
             <span class="font-syne text-2xl font-bold text-primary">8</span>
-            <span class="font-inter text-xs text-muted leading-snug">proyectos construidos</span>
+            <span class="font-inter text-xs text-muted leading-snug">{{ $t('about.metrics.m2') }}</span>
           </div>
           <div class="rounded-2xl bg-surface border border-muted/20 shadow-sm px-4 py-4 flex flex-col gap-1">
             <span class="font-syne text-2xl font-bold text-primary">20+</span>
-            <span class="font-inter text-xs text-muted leading-snug">tests E2E en CI activo</span>
+            <span class="font-inter text-xs text-muted leading-snug">{{ $t('about.metrics.m3') }}</span>
           </div>
           <div class="rounded-2xl bg-surface border border-muted/20 shadow-sm px-4 py-4 flex flex-col gap-1">
             <span class="font-syne text-2xl font-bold text-primary">26k</span>
-            <span class="font-inter text-xs text-muted leading-snug">consultas concurrentes sin fallos</span>
+            <span class="font-inter text-xs text-muted leading-snug">{{ $t('about.metrics.m4') }}</span>
           </div>
         </div>
 

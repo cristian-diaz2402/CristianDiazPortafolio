@@ -3,7 +3,7 @@
 
     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-10 gap-4">
       <h2 class="font-syne text-4xl font-bold text-dark">
-        <span class="text-primary">Proyectos</span> Destacados
+        <span class="text-primary">{{ $t('projects.title_highlight') }}</span> {{ $t('projects.title_normal') }}
       </h2>
       <div class="flex gap-2 flex-wrap">
         <button
@@ -14,33 +14,31 @@
           :class="selectedCategory === category
             ? 'bg-primary text-white border-primary'
             : 'bg-surface text-muted border-muted/30 hover:border-primary hover:text-primary'"
-        >{{ category }}</button>
+        >{{ $t(`projects.categories.${category}`) }}</button>
       </div>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
-      <div v-for="project in filteredProjects" :key="project.id"
+      <div v-for="project in filteredProjects" :key="project.id" :ref="el => setCardRef(el, project.id)"
         class="rounded-2xl bg-surface border border-muted/20 shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 flex flex-col">
 
-        <div class="relative overflow-hidden bg-background shrink-0">
+        <div class="relative overflow-hidden bg-background shrink-0 aspect-video w-full">
 
           <template v-if="!project.videoActive">
-            <div class="relative w-full" style="padding-top: 56.25%;">
-              <div
-                v-for="(image, index) in project.images"
-                :key="index"
-                class="absolute inset-0 bg-center bg-contain bg-no-repeat transition-opacity duration-1000"
-                :style="{
-                  backgroundImage: `url(${image})`,
-                  opacity: index === project.currentImageIndex ? 1 : 0,
-                  transition: 'opacity 1s ease'
-                }"
-              ></div>
-            </div>
+            <div
+              v-for="(image, index) in project.images"
+              :key="index"
+              class="absolute inset-0 bg-center bg-contain bg-no-repeat transition-opacity duration-1000"
+              :style="{
+                backgroundImage: `url(${image})`,
+                opacity: index === project.currentImageIndex ? 1 : 0,
+                transition: 'opacity 1s ease'
+              }"
+            ></div>
 
             <div v-if="project.isAcademic" class="absolute top-3 left-3 z-10">
               <span class="font-inter text-xs px-2.5 py-1 rounded-full bg-dark/70 text-white font-medium backdrop-blur-sm">
-                Proyecto Académico
+                {{ $t('projects.buttons.academic') }}
               </span>
             </div>
 
@@ -52,7 +50,7 @@
               <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm border-2 border-white/60 flex items-center justify-center hover:bg-white/30 transition-all duration-300">
                 <Icon icon="lucide:play" width="24" class="text-white ml-1" />
               </div>
-              <span class="font-inter text-xs text-white/80 font-medium">Ver demo en video</span>
+              <span class="font-inter text-xs text-white/80 font-medium">{{ $t('projects.buttons.video_demo') }}</span>
             </button>
           </template>
 
@@ -70,8 +68,8 @@
         </div>
 
         <div class="p-5 flex flex-col grow">
-          <h3 class="font-syne text-base font-bold text-dark uppercase mb-2">{{ project.title }}</h3>
-          <p class="font-inter text-sm text-muted text-justify leading-relaxed mb-4 grow">{{ project.description }}</p>
+          <h3 class="font-syne text-base font-bold text-dark uppercase mb-2">{{ locale === 'en' && project.title_en ? project.title_en : project.title }}</h3>
+          <p class="font-inter text-sm text-muted text-justify leading-relaxed mb-4 grow">{{ locale === 'en' && project.description_en ? project.description_en : project.description }}</p>
 
           <div v-if="project.gitURL || project.gitFrontend || project.gitBackend || project.hasDemo"
             class="flex items-center gap-2 mb-4 flex-wrap">
@@ -79,25 +77,25 @@
             <a v-if="project.gitURL" :href="project.gitURL" target="_blank"
               class="inline-flex items-center gap-1.5 font-inter text-xs font-medium px-3 py-1.5 rounded-full border border-muted/30 text-muted hover:border-primary hover:text-primary transition-all duration-200">
               <Icon icon="lucide:github" width="13" />
-              Repositorio
+              {{ $t('projects.buttons.repo') }}
             </a>
 
             <a v-if="project.gitFrontend" :href="project.gitFrontend" target="_blank"
               class="inline-flex items-center gap-1.5 font-inter text-xs font-medium px-3 py-1.5 rounded-full border border-muted/30 text-muted hover:border-primary hover:text-primary transition-all duration-200">
               <Icon icon="lucide:smartphone" width="13" />
-              Frontend
+              {{ $t('projects.buttons.frontend') }}
             </a>
 
             <a v-if="project.gitBackend" :href="project.gitBackend" target="_blank"
               class="inline-flex items-center gap-1.5 font-inter text-xs font-medium px-3 py-1.5 rounded-full border border-muted/30 text-muted hover:border-primary hover:text-primary transition-all duration-200">
               <Icon icon="lucide:server" width="13" />
-              Backend
+              {{ $t('projects.buttons.backend') }}
             </a>
 
             <a v-if="project.hasDemo" :href="project.webURL" target="_blank"
               class="inline-flex items-center gap-1.5 font-inter text-xs font-medium px-3 py-1.5 rounded-full border border-primary/40 text-primary hover:bg-primary hover:text-white transition-all duration-200">
               <Icon icon="lucide:external-link" width="13" />
-              Demo
+              {{ $t('projects.buttons.demo') }}
             </a>
           </div>
 
@@ -119,8 +117,11 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { Icon } from '@iconify/vue';
+import { useI18n } from 'vue-i18n';
 
-const categories = ['Todo', 'Web', 'Móvil', 'Sistemas y Arquitectura', 'IA & Datos'];
+const { locale } = useI18n();
+
+const categories = ['all', 'web', 'mobile', 'systems', 'ai'];
 
 const videoRefs = ref({});
 
@@ -140,7 +141,9 @@ const Projects = ref([
     currentImageIndex: 0,
     videoActive: false,
     title: 'AntsOfEcuador — Gestión de Biodiversidad',
+    title_en: 'AntsOfEcuador — Biodiversity Management',
     description: 'Plataforma encargada por investigadores para reemplazar hojas de cálculo manuales con un flujo validado de punta a punta. Diseñé el pipeline de importación Excel con validación taxonómica contra AntCat antes de persistir en base de datos, evitando que registros erróneos contaminaran el dataset científico. La visualización geoespacial con D3.js fue necesaria para que el cliente pudiera identificar vacíos de muestreo por región sin exportar datos. Entregado en 2 meses, en uso activo en producción.',
+    description_en: 'Platform commissioned by researchers to replace manual spreadsheets with an end-to-end validated flow. I designed the Excel import pipeline with taxonomic validation against AntCat before persisting to the database, preventing erroneous records from contaminating the scientific dataset. Geospatial visualization with D3.js was necessary for the client to identify sampling gaps per region without exporting data. Delivered in 2 months, currently active in production.',
     technologies: ['React', 'Tailwind CSS', 'D3.js', 'FastAPI', 'Python', 'PostgreSQL'],
     gitURL: null,
     webURL: null,
@@ -166,7 +169,9 @@ const Projects = ref([
     currentImageIndex: 0,
     videoActive: false,
     title: 'Asistente Virtual 3D con Arquitectura RAG',
+    title_en: '3D Virtual Assistant with RAG Architecture',
     description: 'Tesis de grado (EPN, 2026). Elegí RAG local sobre fine-tuning porque los reglamentos institucionales cambian con frecuencia; actualizar embeddings en Qdrant es trivial frente a re-entrenar un modelo. Opté por vLLM con PagedAttention para maximizar throughput en hardware limitado, y caché semántica con Redis para absorber consultas repetitivas sin tocar el LLM. Resultado: 26.000 consultas concurrentes sin fallos, latencia de 23 ms en caché y 100% de mitigación de prompt injection.',
+    description_en: 'Bachelor\'s thesis (EPN, 2026). I chose local RAG over fine-tuning because institutional regulations change frequently; updating embeddings in Qdrant is trivial compared to retraining a model. I opted for vLLM with PagedAttention to maximize throughput on limited hardware, and semantic caching with Redis to absorb repetitive queries without querying the LLM. Result: 26,000 concurrent queries without failures, 23 ms latency in cache, and 100% mitigation of prompt injection.',
     technologies: ['Vue 3', 'Three.js', 'FastAPI', 'RAG', 'Qdrant', 'vLLM', 'Redis', 'Python', 'Nginx'],
     gitURL: null,
     webURL: null,
@@ -189,7 +194,9 @@ const Projects = ref([
     currentImageIndex: 0,
     videoActive: false,
     title: 'MarketGo — Plataforma E-commerce',
+    title_en: 'MarketGo — E-commerce Platform',
     description: 'Proyecto académico grupal con ciclos Scrum reales. Tomé la decisión de separar autenticación (Firebase) de la lógica de negocio en Node.js para no acoplar el modelo de usuario a un proveedor externo. El pipeline CI/CD en Azure DevOps nos permitió iterar sin fricción entre sprints. El mayor aprendizaje fue gestionar la consistencia de estado entre el carrito, la pasarela de pagos y el inventario en tiempo real.',
+    description_en: 'Group academic project with real Scrum cycles. I made the architectural decision to decouple authentication (Firebase) from the business logic in Node.js to avoid tying the user model to an external provider. The CI/CD pipeline in Azure DevOps allowed us to iterate frictionlessly across sprints. The main takeaway was managing state consistency among the shopping cart, the payment gateway, and real-time inventory.',
     technologies: ['Angular', 'Node.js', 'Firebase', 'Azure DevOps'],
     gitURL: 'https://github.com/cristian-diaz2402/MarketGo.git',
     webURL: 'https://marketgog5.netlify.app/',
@@ -210,7 +217,9 @@ const Projects = ref([
     currentImageIndex: 0,
     videoActive: false,
     title: 'Capibara Bot — Robótica, HCI y ML',
+    title_en: 'Capibara Bot — Robotics, HCI & ML',
     description: 'Robot educativo de bajo costo (MDF + ESP32) controlado por app Android vía Bluetooth. Elegí Random Forest sobre redes neuronales porque la telemetría de usuario es tabular y de baja dimensión; un modelo interpretable y liviano era más adecuado que uno costoso de entrenar. Usé la escala SUS como métrica de evaluación porque cuantifica usabilidad percibida de forma estandarizada, permitiendo comparar contra benchmarks de la industria.',
+    description_en: 'Low-cost educational robot (MDF + ESP32) controlled by an Android app via Bluetooth. I chose Random Forest over neural networks because the user telemetry data is tabular and low-dimensional; an interpretable and lightweight model was more suitable than a costly one to train. I used the SUS scale as an evaluation metric because it quantifies perceived usability in a standardized way, allowing comparisons against industry benchmarks.',
     technologies: ['ESP32', 'C++', 'Android', 'Python', 'FastAPI', 'Random Forest'],
     gitURL: 'https://github.com/cristian-diaz2402/CapibaraBot',
     gitFrontend: null,
@@ -237,7 +246,9 @@ const Projects = ref([
     currentImageIndex: 0,
     videoActive: false,
     title: 'Money Manager G5 — App Móvil & ML API',
+    title_en: 'Money Manager G5 — Mobile App & ML API',
     description: 'App Android nativa en Kotlin con un backend FastAPI compartido en producción con el proyecto Capibara Bot. Diseñé la API para soportar múltiples clientes desde el inicio, lo que permitió reutilizar los endpoints de ML (predicción de categorías de gasto con Hugging Face) sin duplicar infraestructura. Esa decisión arquitectónica redujo el costo operativo de mantener dos proyectos simultáneamente.',
+    description_en: 'Native Android app built with Kotlin, sharing a production FastAPI backend with the Capibara Bot project. I designed the API to support multiple clients from the beginning, which allowed reusing the ML endpoints (expense category prediction using Hugging Face) without duplicating infrastructure. This architectural decision reduced the operational cost of maintaining two projects simultaneously.',
     technologies: ['Kotlin', 'Python', 'FastAPI', 'PostgreSQL', 'Machine Learning', 'Hugging Face'],
     gitURL: null,
     gitFrontend: 'https://github.com/cristian-diaz2402/MoneyManagerG5',
@@ -264,7 +275,9 @@ const Projects = ref([
     currentImageIndex: 0,
     videoActive: false,
     title: 'ERP Empresarial de Gestión Transaccional',
+    title_en: 'Enterprise Transactional Management ERP',
     description: 'ERP académico donde el reto central fue garantizar integridad en operaciones multi-tabla de inventario y facturación. Modelé las transacciones con propiedades ACID explícitas para evitar inconsistencias ante fallos parciales, algo que una solución sin control transaccional no habría tolerado. Fue el proyecto donde interioricé que el diseño del esquema relacional condiciona todas las decisiones de rendimiento posteriores.',
+    description_en: 'Academic ERP where the main challenge was ensuring integrity in multi-table inventory and billing operations. I modeled transactions with explicit ACID properties to prevent inconsistencies in the event of partial failures, something a solution without transactional control would not have tolerated. This was the project where I realized that relational schema design dictates all subsequent performance decisions.',
     technologies: ['C#', 'SQL Server', '.NET'],
     gitURL: 'https://github.com/cristian-diaz2402/PapelGive.git',
     webURL: null,
@@ -289,7 +302,9 @@ const Projects = ref([
     currentImageIndex: 0,
     videoActive: false,
     title: 'Arquitectura de Datos Distribuida',
+    title_en: 'Distributed Data Architecture',
     description: 'Extensión del ERP sobre Oracle con topología multi-nodo real. Apliqué fragmentación horizontal para distribuir la carga de consultas por volumen de registros, y replicación sincrónica para garantizar disponibilidad ante caída de un nodo sin pérdida de datos. El punto crítico fue configurar correctamente Oracle Net Manager para que la transparencia de ubicación fuera total para la capa de aplicación.',
+    description_en: 'ERP extension built on Oracle with a real multi-node topology. I applied horizontal fragmentation to distribute the query load based on record volume, and synchronous replication to ensure availability in the event of a node failure without data loss. The critical point was properly configuring Oracle Net Manager to achieve complete location transparency for the application layer.',
     technologies: ['C#', 'Oracle', 'Distributed DBs'],
     gitURL: 'https://github.com/cristian-diaz2402/PapelGiveOracle.git',
     webURL: null,
@@ -308,7 +323,9 @@ const Projects = ref([
     currentImageIndex: 0,
     videoActive: false,
     title: 'Motor Gráfico Interactivo (Computer Graphics)',
+    title_en: 'Interactive Graphics Engine (Computer Graphics)',
     description: 'Implementación desde cero del pipeline programable de OpenGL, sin abstracciones de motor. Elegí trabajar directamente con VBO y VAO para entender cómo el layout de memoria en GPU impacta el rendimiento real de renderizado. Escribir los shaders GLSL manualmente obligó a razonar sobre cada etapa del pipeline, algo que el uso de un motor como Unity oculta por completo.',
+    description_en: 'From-scratch implementation of the programmable OpenGL pipeline, without engine abstractions. I chose to work directly with VBOs and VAOs to understand how GPU memory layout impacts actual rendering performance. Writing GLSL shaders manually forced me to reason about every stage of the pipeline, something that using an engine like Unity completely hides.',
     technologies: ['C#', 'OpenGL', 'GLSL Shaders'],
     gitURL: 'https://github.com/cristian-diaz2402/VideoJuego.git',
     webURL: null,
@@ -334,7 +351,9 @@ const Projects = ref([
     currentImageIndex: 0,
     videoActive: false,
     title: 'Shoplight — E-commerce Cloud & EDA',
+    title_en: 'Shoplight — E-commerce Cloud & EDA',
     description: 'E-commerce cloud-native donde el reto fue superar las limitaciones de escalabilidad de un modelo síncrono. Adopté una Arquitectura Orientada a Eventos (EDA) usando Amazon SQS como buffer para absorber picos de órdenes sin pérdida de datos, y SNS para aislar las alertas de inventario crítico. Confiné PostgreSQL Multi-AZ en subredes privadas (VPC) por seguridad, y usé DynamoDB para garantizar un Kardex de auditoría inmutable de baja latencia. Delegué el auto-etiquetado visual a Amazon Rekognition para no sobrecargar el backend (Node.js/Docker). La resiliencia de la infraestructura en Elastic Beanstalk fue comprobada mediante Chaos Testing, demostrando recuperación automática ante caídas sin interrumpir el servicio.',
+    description_en: 'Cloud-native e-commerce platform where the challenge was overcoming the scalability limits of a synchronous model. I adopted an Event-Driven Architecture (EDA) using Amazon SQS as a buffer to absorb order spikes without data loss, and SNS to isolate critical inventory alerts. I confined Multi-AZ PostgreSQL within private subnets (VPC) for security and used DynamoDB to ensure a low-latency, immutable audit ledger. I offloaded visual auto-tagging to Amazon Rekognition to prevent overloading the backend (Node.js/Docker). Infrastructure resilience on Elastic Beanstalk was validated through Chaos Testing, demonstrating automatic recovery from crashes with zero service interruption.',
     technologies: ['Vue 3', 'Node.js', 'Prisma', 'AWS (VPC, EC2, RDS, S3)', 'SQS & SNS', 'DynamoDB', 'Rekognition', 'Docker'],
     gitURL: 'https://github.com/cristian-diaz2402/ShoplightAWS.git',
     webURL: null, 
@@ -345,16 +364,24 @@ const Projects = ref([
 ]);
 
 const intervalMap = new Map();
-const selectedCategory = ref('Todo');
+const selectedCategory = ref('all');
+
+const categoryMap = {
+  'web': 'Web',
+  'mobile': 'Móvil',
+  'systems': 'Sistemas y Arquitectura',
+  'ai': 'IA & Datos'
+};
 
 const filteredProjects = computed(() => {
-  return selectedCategory.value === 'Todo'
+  return selectedCategory.value === 'all'
     ? Projects.value
-    : Projects.value.filter(p => p.category === selectedCategory.value);
+    : Projects.value.filter(p => p.category === categoryMap[selectedCategory.value]);
 });
 
 function startCarousel(project) {
   if (project.images.length <= 1) return;
+  if (intervalMap.has(project.id)) return;
   const id = setInterval(() => {
     project.currentImageIndex = (project.currentImageIndex + 1) % project.images.length;
   }, 3000);
@@ -379,11 +406,38 @@ function deactivateVideo(project) {
   startCarousel(project);
 }
 
+const observer = ref(null);
+const cardRefs = new Map();
+
+function setCardRef(el, projectId) {
+  if (el) {
+    cardRefs.set(el, projectId);
+    if (observer.value) {
+      observer.value.observe(el);
+    }
+  }
+}
+
 onMounted(() => {
-  Projects.value.forEach(project => startCarousel(project));
+  observer.value = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const projectId = cardRefs.get(entry.target);
+      const project = Projects.value.find(p => p.id === projectId);
+      if (project) {
+        if (entry.isIntersecting && !project.videoActive) {
+          startCarousel(project);
+        } else {
+          stopCarousel(project);
+        }
+      }
+    });
+  }, { threshold: 0.1 });
 });
 
 onUnmounted(() => {
+  if (observer.value) {
+    observer.value.disconnect();
+  }
   intervalMap.forEach(id => clearInterval(id));
 });
 </script>

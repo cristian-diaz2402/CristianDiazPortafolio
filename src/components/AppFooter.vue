@@ -15,7 +15,7 @@
         </a>
       </div>
 
-      <p class="font-inter text-sm text-muted">© 2026 Cristian Díaz. Todos los derechos reservados.</p>
+      <p class="font-inter text-sm text-muted">{{ $t('footer.copyright') }}</p>
     </div>
   </footer>
 </template>

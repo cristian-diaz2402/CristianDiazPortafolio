@@ -4,7 +4,7 @@
 
       <div data-aos="fade-right">
         <h2 class="font-syne text-4xl font-bold text-dark mb-10">
-          <span class="text-primary">Stack</span> Principal
+          {{ $t('skills.title1') }}
         </h2>
         <div class="grid grid-cols-4 sm:grid-cols-5 gap-6">
           <div v-for="skill in skills" :key="skill.id" data-aos="zoom-in-up"
@@ -17,7 +17,7 @@
 
       <div class="mt-10 md:mt-0" data-aos="fade-left">
         <h2 class="font-syne text-4xl font-bold text-dark mb-10">
-          <span class="text-primary">Infraestructura</span> & Calidad
+          {{ $t('skills.title2') }}
         </h2>
         <div class="grid grid-cols-1 gap-3">
           <div v-for="element in infraSkills" :key="element.id"
@@ -33,8 +33,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { Icon } from '@iconify/vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const skills = ref([
   { id: 1, icon: 'devicon:vuejs', name: 'Vue.js' },
@@ -48,12 +51,12 @@ const skills = ref([
   { id: 9, icon: 'devicon:jira', name: 'Jira' },
 ]);
 
-const infraSkills = ref([
-  { id: 1, role: 'Playwright — Automatización E2E', icon: 'lucide:test-tube-2' },
-  { id: 2, role: 'GitHub Actions — CI/CD Pipelines', icon: 'lucide:git-branch' },
-  { id: 3, role: 'Ubuntu Linux — Administración de Servidores', icon: 'lucide:terminal' },
-  { id: 4, role: 'Nginx & Proxy Inverso', icon: 'lucide:server' },
-  { id: 5, role: 'vLLM & Ollama — Inferencia Local de LLMs', icon: 'lucide:brain-circuit' },
-  { id: 6, role: 'Render, Netlify & VPS (Hostinger) — Despliegues en la Nube', icon: 'lucide:cloud-upload' },
+const infraSkills = computed(() => [
+  { id: 1, role: t('skills.infra.s1'), icon: 'lucide:test-tube-2' },
+  { id: 2, role: t('skills.infra.s2'), icon: 'lucide:git-branch' },
+  { id: 3, role: t('skills.infra.s3'), icon: 'lucide:terminal' },
+  { id: 4, role: t('skills.infra.s4'), icon: 'lucide:server' },
+  { id: 5, role: t('skills.infra.s5'), icon: 'lucide:brain-circuit' },
+  { id: 6, role: t('skills.infra.s6'), icon: 'lucide:cloud-upload' },
 ]);
 </script>

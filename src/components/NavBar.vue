@@ -8,7 +8,7 @@
     </div>
 
     <div class="md:hidden z-30">
-      <button type="button" class="block focus:outline-none" @click="isMenuOpen = !isMenuOpen">
+      <button type="button" aria-label="Menú de Navegación" class="block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm" @click="isMenuOpen = !isMenuOpen">
         <Icon v-if="isMenuOpen" icon="lucide:x" width="28" height="28" class="text-dark" />
         <Icon v-else icon="lucide:menu" width="28" height="28" class="text-dark" />
       </button>
@@ -18,12 +18,15 @@
       class="fixed inset-0 z-20 flex-col items-center justify-center bg-background md:relative md:inset-auto md:flex md:flex-row"
       :class="isMenuOpen ? 'flex' : 'hidden md:flex'"
     >
-      <ul class="flex flex-col items-center space-y-6 md:flex-row md:space-y-0 md:space-x-8">
+      <ul class="flex flex-col items-center space-y-6 md:flex-row md:space-y-0 md:space-x-6 lg:space-x-8">
         <li v-for="item in Menu" :key="item.name">
-          <a :href="item.href" class="font-inter block text-2xl md:text-base font-medium text-dark transition-all ease-linear hover:text-primary" @click="scrollToSection(item.href)">{{ item.name }}</a>
+          <a :href="item.href" class="font-inter block text-2xl md:text-base font-medium text-dark transition-all ease-linear hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none rounded-sm" @click="scrollToSection(item.href)">{{ item.name }}</a>
         </li>
         <li>
-          <a href="#contact" class="font-inter px-5 py-2 rounded-full text-base font-medium bg-primary text-white transition-all hover:opacity-80" @click="scrollToSection('#contact')">Contáctame</a>
+          <a href="#contact" class="font-inter px-5 py-2 rounded-full text-base font-medium bg-primary text-white transition-all hover:opacity-80 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-offset-2" @click="scrollToSection('#contact')">{{ $t('nav.contact') }}</a>
+        </li>
+        <li class="pt-4 md:pt-0">
+          <LanguageSwitcher />
         </li>
       </ul>
     </nav>
@@ -31,14 +34,18 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { Icon } from '@iconify/vue';
+import { useI18n } from 'vue-i18n';
+import LanguageSwitcher from './LanguageSwitcher.vue';
 
-const Menu = ref([
-  { name: 'Sobre mí', href: '#about' },
-  { name: 'Experiencia', href: '#experience' },
-  { name: 'Habilidades', href: '#skills' },
-  { name: 'Proyectos', href: '#projects' },
+const { t } = useI18n();
+
+const Menu = computed(() => [
+  { name: t('nav.about'), href: '#about' },
+  { name: t('nav.experience'), href: '#experience' },
+  { name: t('nav.skills'), href: '#skills' },
+  { name: t('nav.projects'), href: '#projects' },
 ]);
 
 const isMenuOpen = ref(false);

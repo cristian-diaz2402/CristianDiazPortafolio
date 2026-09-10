@@ -1,7 +1,7 @@
 <template>
   <section class="mt-20 px-4 xl:px-16 py-16" id="experience">
     <h2 class="font-syne text-4xl font-bold text-dark mb-10">
-      <span class="text-primary">Experiencia</span> Profesional
+      {{ $t('experience.title') }}
     </h2>
 
     <div class="flex flex-col gap-8">
@@ -10,16 +10,16 @@
 
         <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
           <div>
-            <h3 class="font-syne text-xl font-bold text-dark">{{ job.role }}</h3>
-            <p class="font-inter text-primary font-medium text-sm mt-0.5">{{ job.company }}</p>
+            <h3 class="font-syne text-xl font-bold text-dark">{{ locale === 'en' && job.role_en ? job.role_en : job.role }}</h3>
+            <p class="font-inter text-primary font-medium text-sm mt-0.5">{{ locale === 'en' && job.company_en ? job.company_en : job.company }}</p>
           </div>
           <div class="flex flex-col items-start sm:items-end gap-1 shrink-0">
-            <span class="font-inter text-xs text-muted bg-muted/10 px-3 py-1 rounded-full">{{ job.period }}</span>
-            <span class="font-inter text-xs text-muted">{{ job.type }}</span>
+            <span class="font-inter text-xs text-muted bg-muted/10 px-3 py-1 rounded-full">{{ locale === 'en' && job.period_en ? job.period_en : job.period }}</span>
+            <span class="font-inter text-xs text-muted">{{ locale === 'en' && job.type_en ? job.type_en : job.type }}</span>
           </div>
         </div>
 
-        <p class="font-inter text-muted text-sm leading-relaxed mb-4">{{ job.description }}</p>
+        <p class="font-inter text-muted text-sm leading-relaxed mb-4">{{ locale === 'en' && job.description_en ? job.description_en : job.description }}</p>
 
         <div class="flex flex-wrap gap-2">
           <span v-for="tech in job.stack" :key="tech"
@@ -35,15 +35,22 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { locale } = useI18n();
 
 const experience = ref([
   {
     id: 1,
     role: 'Frontend Developer · QA Automation',
     company: 'Wanqara — Facturación Electrónica (Ecuador)',
+    company_en: 'Wanqara — E-Invoicing (Ecuador)',
     period: 'Jun 2024 — Actualidad · 2 años 2 meses',
+    period_en: 'Jun 2024 — Present · 2 years 2 months',
     type: 'Servicios prestados · Remoto',
+    type_en: 'Contract · Remote',
     description: 'Desarrollé dos módulos frontend hoy en producción activa con clientes reales: Comandas KDS, sistema de gestión de órdenes para cocina en tiempo real; y Visor Comercial, pantalla de estado para clientes en punto de venta. Diseñé desde cero la suite E2E con Playwright —más de 20 tests de regresión— con separación de smoke tests por push a develop y regresión completa por merge a main. Configuré el pipeline de CI en GitHub Actions con control de concurrencia y API_TIMEOUT diferenciado entre entornos. Identifiqué y resolví race conditions en waitForResponse registrando los listeners antes del click en lugar de concurrentemente, eliminando falsos negativos intermitentes en CI.',
+    description_en: 'Developed two frontend modules currently in active production with real clients: KDS (Kitchen Display System) for real-time kitchen order management, and POS Status Viewer for clients at the point of sale. Designed the E2E suite from scratch with Playwright—over 20 regression tests—separating smoke tests triggered by pushes to develop and full regression tests triggered by merges to main. Configured the CI pipeline in GitHub Actions with concurrency control and environment-specific API_TIMEOUTs. Identified and resolved race conditions in waitForResponse by registering listeners before the click action instead of concurrently, eliminating intermittent false negatives in CI.',
     stack: ['Vue.js', 'Pinia', 'TanStack Query', 'Playwright', 'GitHub Actions']
   },
   {
@@ -51,8 +58,11 @@ const experience = ref([
     role: 'Frontend Developer · Freelance',
     company: 'AntsOfEcuador — Freelance (Ecuador)',
     period: 'May 2025 — Jul 2025 · 2 meses',
+    period_en: 'May 2025 — Jul 2025 · 2 months',
     type: 'Freelance · Proyecto completado',
+    type_en: 'Freelance · Completed project',
     description: 'Construí y entregué en producción una plataforma de registro científico de especies de hormigas en Ecuador, reemplazando un flujo manual en hojas de cálculo. Diseñé el pipeline de importación Excel con validación taxonómica contra AntCat antes de persistir en base de datos, evitando que registros erróneos contaminaran el dataset científico. Implementé visualización geoespacial con D3.js segmentada por regiones del país. Proyecto entregado en 2 meses, en uso activo por el equipo investigador.',
+    description_en: 'Built and delivered to production a scientific tracking platform for ant species in Ecuador, replacing a manual spreadsheet workflow. Designed the Excel import pipeline with taxonomic validation against AntCat before persisting data to the database, preventing erroneous records from contaminating the scientific dataset. Implemented geospatial visualization with D3.js segmented by regions of the country. Project delivered in 2 months, in active use by the research team.',
     stack: ['React', 'Tailwind CSS', 'D3.js', 'FastAPI', 'Python', 'PostgreSQL']
   }
 ]);

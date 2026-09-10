@@ -1,0 +1,73 @@
+{
+  "nav": {
+    "about": "About me",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact me"
+  },
+  "hero": {
+    "role": "Frontend Developer · E2E Quality",
+    "description": "Computer Science Engineer recently graduated from EPN, with two years of real production experience at Wanqara. I developed active frontend modules with Vue.js and took ownership of the entire E2E suite using Playwright: test architecture, CI pipelines in GitHub Actions, and resolving race conditions between environments. I specialize in building solid interfaces and ensuring they reach production bug-free.",
+    "view_projects": "View Projects",
+    "download_cv": "Download CV",
+    "photo_alt": "Cristian Diaz Photography"
+  },
+  "projects": {
+    "title_highlight": "Featured",
+    "title_normal": "Projects",
+    "categories": {
+      "all": "All",
+      "web": "Web",
+      "mobile": "Mobile",
+      "systems": "Systems & Architecture",
+      "ai": "AI & Data"
+    },
+    "buttons": {
+      "academic": "Academic Project",
+      "video_demo": "Watch video demo",
+      "repo": "Repository",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "demo": "Demo"
+    }
+  },
+  "about": {
+    "title": "About me",
+    "p1": "Recently graduated in Computer Science Engineering from EPN, with two years of real-world experience at Wanqara developing production frontend modules and taking responsibility for the team's quality infrastructure: E2E test suite with Playwright, CI pipelines in GitHub Actions, and resolving race conditions across environments.",
+    "p2": "For my thesis, I built an academic assistant with RAG architecture deployed on Linux with Nginx and SSL. I chose RAG over fine-tuning because institutional regulations change frequently, and updating embeddings in Qdrant is trivial compared to retraining a model. The system handled 26,000 concurrent queries with zero failures and 23 ms latency in cache using Redis.",
+    "p3": "I am seeking a junior role where I can continue developing interfaces and contribute to software quality from the very beginning of the lifecycle, not as an afterthought.",
+    "title2": "Education & Facts",
+    "edu_inst": "Escuela Politécnica Nacional",
+    "edu_degree": "Computer Science Engineering",
+    "edu_date": "Graduated — August 2026",
+    "metrics": {
+      "m1": "years in real production",
+      "m2": "projects built",
+      "m3": "E2E tests in active CI",
+      "m4": "concurrent queries without failures"
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 Cristian Díaz. All rights reserved."
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Available for job opportunities, technical collaborations, or project inquiries. You can reach out to me directly through any of these channels."
+  },
+  "skills": {
+    "title1": "Core Stack",
+    "title2": "Infrastructure & Quality",
+    "infra": {
+      "s1": "Playwright — E2E Automation",
+      "s2": "GitHub Actions — CI/CD Pipelines",
+      "s3": "Ubuntu Linux — Server Administration",
+      "s4": "Nginx & Reverse Proxy",
+      "s5": "vLLM & Ollama — Local LLM Inference",
+      "s6": "Render, Netlify & VPS (Hostinger) — Cloud Deployments"
+    }
+  },
+  "experience": {
+    "title": "Professional Experience"
+  }
+}

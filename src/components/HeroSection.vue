@@ -13,7 +13,7 @@
 
           <h1 class="font-syne font-bold text-4xl md:text-5xl lg:text-6xl text-dark leading-tight">
             Cristian Díaz
-            <span class="block text-primary text-2xl md:text-3xl lg:text-4xl mt-2">Frontend Developer · Calidad E2E</span>
+            <span class="block text-primary text-2xl md:text-3xl lg:text-4xl mt-2">{{ $t('hero.role') }}</span>
           </h1>
 
           <div class="flex flex-wrap gap-2 mt-5">
@@ -25,32 +25,32 @@
           </div>
 
           <p class="font-inter pt-6 text-justify max-w-xl text-muted leading-relaxed">
-            Ingeniero en Ciencias de la Computación recién egresado de la EPN, con dos años de experiencia real en producción en Wanqara. Desarrollé módulos frontend activos con Vue.js y tomé ownership de la suite E2E completa con Playwright: arquitectura de tests, pipelines de CI en GitHub Actions y resolución de race conditions entre entornos. Me especializo en construir interfaces sólidas y en garantizar que lleguen a producción sin errores.
+            {{ $t('hero.description') }}
           </p>
 
           <!-- Botones -->
           <div class="flex items-center gap-4 pt-8 flex-col sm:flex-row">
             <a href="#projects"
-              class="flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-inter font-medium hover:opacity-80 transition-all duration-300">
+              class="flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-inter font-medium hover:opacity-80 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-offset-2 transition-all duration-300">
               <Icon icon="lucide:folder-open" width="18" />
-              Ver Proyectos
+              {{ $t('hero.view_projects') }}
             </a>
             <!-- Asegúrate de haber movido tu PDF a la carpeta public/ -->
-            <a href="/HojaDeVidaProfesion.pdf" download="DiazCristianCurriculum.pdf"
-              class="flex items-center gap-2 px-6 py-3 rounded-full border border-primary text-primary font-inter font-medium hover:bg-primary hover:text-white transition-all duration-300">
+            <a :href="cvFileUrl" :download="cvFileName"
+              class="flex items-center gap-2 px-6 py-3 rounded-full border border-primary text-primary font-inter font-medium hover:bg-primary hover:text-white focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-offset-2 transition-all duration-300">
               <Icon icon="lucide:download" width="18" />
-              Descargar CV
+              {{ $t('hero.download_cv') }}
             </a>
           </div>
 
           <div class="flex items-center gap-5 pt-8">
-            <a href="https://github.com/cristian-diaz2402" target="_blank" class="text-muted hover:text-primary transition-colors duration-300">
+            <a href="https://github.com/cristian-diaz2402" target="_blank" aria-label="GitHub" class="text-muted hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none rounded-full transition-colors duration-300">
               <Icon icon="lucide:github" width="22" />
             </a>
-            <a href="https://www.linkedin.com/in/cristian-diaz-50ab862aa" target="_blank" class="text-muted hover:text-primary transition-colors duration-300">
+            <a href="https://www.linkedin.com/in/cristian-diaz-50ab862aa" target="_blank" aria-label="LinkedIn" class="text-muted hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none rounded-full transition-colors duration-300">
               <Icon icon="lucide:linkedin" width="22" />
             </a>
-            <a href="mailto:dannycriss12@gmail.com" class="text-muted hover:text-primary transition-colors duration-300">
+            <a href="mailto:dannycriss12@gmail.com" aria-label="Correo Electrónico" class="text-muted hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none rounded-full transition-colors duration-300">
               <Icon icon="lucide:mail" width="22" />
             </a>
           </div>
@@ -65,6 +65,8 @@
               <img 
                 src="/perfil2.png" 
                 alt="Fotografía de Cristian Díaz" 
+                loading="eager"
+                fetchpriority="high"
                 class="w-full h-full object-cover object-center"
               />
             </div>
@@ -77,10 +79,16 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import { Icon } from '@iconify/vue';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { useI18n } from 'vue-i18n';
 
-// Inicializa las animaciones
-AOS.init();
+// Import local assets (Vite resolves these to static URLs automatically)
+import cvEsp from '@/assets/Diaz-Cristias-CV-ESP.pdf';
+import cvEng from '@/assets/Diaz-Cristias-CV-ENG.pdf';
+
+const { locale } = useI18n();
+
+const cvFileUrl = computed(() => locale.value === 'en' ? cvEng : cvEsp);
+const cvFileName = computed(() => locale.value === 'en' ? 'Cristian_Diaz_CV_ENG.pdf' : 'Cristian_Diaz_CV_ESP.pdf');
 </script>

@@ -1,0 +1,73 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "experience": "Experiencia",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contáctame"
+  },
+  "hero": {
+    "role": "Frontend Developer · Calidad E2E",
+    "description": "Ingeniero en Ciencias de la Computación recién egresado de la EPN, con dos años de experiencia real en producción en Wanqara. Desarrollé módulos frontend activos con Vue.js y tomé ownership de la suite E2E completa con Playwright: arquitectura de tests, pipelines de CI en GitHub Actions y resolución de race conditions entre entornos. Me especializo en construir interfaces sólidas y en garantizar que lleguen a producción sin errores.",
+    "view_projects": "Ver Proyectos",
+    "download_cv": "Descargar CV",
+    "photo_alt": "Fotografía de Cristian Díaz"
+  },
+  "projects": {
+    "title_highlight": "Proyectos",
+    "title_normal": "Destacados",
+    "categories": {
+      "all": "Todo",
+      "web": "Web",
+      "mobile": "Móvil",
+      "systems": "Sistemas y Arquitectura",
+      "ai": "IA & Datos"
+    },
+    "buttons": {
+      "academic": "Proyecto Académico",
+      "video_demo": "Ver demo en video",
+      "repo": "Repositorio",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "demo": "Demo"
+    }
+  },
+  "about": {
+    "title": "Sobre mí",
+    "p1": "Recién egresado de Ingeniería en Ciencias de la Computación en la EPN, con dos años de experiencia real en Wanqara desarrollando módulos frontend en producción y siendo responsable de la infraestructura de calidad del equipo: suite E2E con Playwright, pipelines de CI en GitHub Actions y resolución de race conditions entre entornos.",
+    "p2": "Para mi tesis construí un asistente académico con arquitectura RAG desplegado en Linux con Nginx y SSL. Elegí RAG sobre fine-tuning porque los reglamentos institucionales cambian con frecuencia y actualizar embeddings en Qdrant es trivial frente a re-entrenar un modelo. El sistema soportó 26.000 consultas concurrentes sin fallos y 23 ms de latencia en caché con Redis.",
+    "p3": "Busco un primer rol donde pueda seguir desarrollando interfaces y contribuir a la calidad del software desde el inicio del ciclo, no como afterthought.",
+    "title2": "Formación & Datos",
+    "edu_inst": "Escuela Politécnica Nacional",
+    "edu_degree": "Ingeniería en Ciencias de la Computación",
+    "edu_date": "Graduado — Agosto 2026",
+    "metrics": {
+      "m1": "años en producción real",
+      "m2": "proyectos construidos",
+      "m3": "tests E2E en CI activo",
+      "m4": "consultas concurrentes sin fallos"
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 Cristian Díaz. Todos los derechos reservados."
+  },
+  "contact": {
+    "title": "Contacto",
+    "description": "Disponible para oportunidades laborales, colaboraciones técnicas o consultas sobre proyectos. Puedes escribirme directamente por cualquiera de estos canales."
+  },
+  "skills": {
+    "title1": "Stack Principal",
+    "title2": "Infraestructura & Calidad",
+    "infra": {
+      "s1": "Playwright — Automatización E2E",
+      "s2": "GitHub Actions — CI/CD Pipelines",
+      "s3": "Ubuntu Linux — Administración de Servidores",
+      "s4": "Nginx & Proxy Inverso",
+      "s5": "vLLM & Ollama — Inferencia Local de LLMs",
+      "s6": "Render, Netlify & VPS (Hostinger) — Despliegues en la Nube"
+    }
+  },
+  "experience": {
+    "title": "Experiencia Profesional"
+  }
+}

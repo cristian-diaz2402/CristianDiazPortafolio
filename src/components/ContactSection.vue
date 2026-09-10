@@ -2,9 +2,9 @@
   <section class="mt-20 px-4 xl:px-16 py-16" id="contact">
     <div class="max-w-2xl mx-auto" data-aos="fade-up">
 
-      <h2 class="font-syne text-4xl font-bold text-dark mb-4">Contacto</h2>
+      <h2 class="font-syne text-4xl font-bold text-dark mb-4">{{ $t('contact.title') }}</h2>
       <p class="font-inter text-muted mb-10 leading-relaxed">
-        Disponible para oportunidades laborales, colaboraciones técnicas o consultas sobre proyectos. Puedes escribirme directamente por cualquiera de estos canales.
+        {{ $t('contact.description') }}
       </p>
 
       <div class="flex flex-col gap-6">
