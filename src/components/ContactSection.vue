@@ -28,7 +28,7 @@
             <h4 class="font-syne font-semibold text-dark text-sm uppercase">LinkedIn</h4>
             <a href="https://www.linkedin.com/in/cristian-diaz-50ab862aa" target="_blank"
               class="font-inter text-sm text-primary hover:opacity-70 transition-opacity">
-              cristian-diaz-50ab862aa
+              https://www.linkedin.com/in/cristian-diaz-50ab862aa
             </a>
           </div>
         </div>
@@ -41,7 +41,7 @@
             <h4 class="font-syne font-semibold text-dark text-sm uppercase">GitHub</h4>
             <a href="https://github.com/cristian-diaz2402" target="_blank"
               class="font-inter text-sm text-primary hover:opacity-70 transition-opacity">
-              cristian-diaz2402
+              https://github.com/cristian-diaz2402
             </a>
           </div>
         </div>

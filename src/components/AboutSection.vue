@@ -41,11 +41,11 @@
             <span class="font-inter text-xs text-muted leading-snug">{{ $t('about.metrics.m1') }}</span>
           </div>
           <div class="rounded-2xl bg-surface border border-muted/20 shadow-sm px-4 py-4 flex flex-col gap-1">
-            <span class="font-syne text-2xl font-bold text-primary">8</span>
+            <span class="font-syne text-2xl font-bold text-primary">{{ projectsCount }}</span>
             <span class="font-inter text-xs text-muted leading-snug">{{ $t('about.metrics.m2') }}</span>
           </div>
           <div class="rounded-2xl bg-surface border border-muted/20 shadow-sm px-4 py-4 flex flex-col gap-1">
-            <span class="font-syne text-2xl font-bold text-primary">20+</span>
+            <span class="font-syne text-2xl font-bold text-primary">300+</span>
             <span class="font-inter text-xs text-muted leading-snug">{{ $t('about.metrics.m3') }}</span>
           </div>
           <div class="rounded-2xl bg-surface border border-muted/20 shadow-sm px-4 py-4 flex flex-col gap-1">
@@ -61,4 +61,5 @@
 </template>
 
 <script setup>
+import { projectsCount } from '@/data/store.js';
 </script>

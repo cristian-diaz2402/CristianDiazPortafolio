@@ -118,6 +118,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { Icon } from '@iconify/vue';
 import { useI18n } from 'vue-i18n';
+import { projectsCount } from '@/data/store.js';
 
 const { locale } = useI18n();
 
@@ -153,6 +154,27 @@ const Projects = ref([
   },
   {
     id: 2,
+    category: 'Web',
+    images: [
+      'https://res.cloudinary.com/dbvywv8op/image/upload/v1791126153/inicio_ntbxiu.png', 
+      'https://res.cloudinary.com/dbvywv8op/image/upload/v1791126153/novedades_m3qier.png', 
+      'https://res.cloudinary.com/dbvywv8op/image/upload/v1791126152/final_dee9nu.png'
+    ],
+    currentImageIndex: 0,
+    videoActive: false,
+    title: 'Pizzería Pedestales — Landing Page & Catálogo Digital',
+    title_en: 'Pizzería Pedestales — Landing Page & Digital Catalog',
+    description: 'Transformación digital para un negocio local tradicional. El proyecto resuelve su falta de visibilidad en línea mediante un catálogo interactivo con un fuerte enfoque en SEO técnico, logrando destacar la marca en buscadores locales. Actualmente activo en producción, desplegado sobre Vercel.',
+    description_en: 'Digital transformation for a traditional local business. The project solves their lack of online visibility through an interactive catalog with a strong focus on technical SEO, boosting the brand in local search results. Currently active in production, deployed on Vercel.',
+    technologies: ['Nuxt 4', 'Vue 3', 'TypeScript', 'Tailwind CSS', 'Vercel'],
+    gitURL: null,
+    webURL: 'https://pizzeriapedestales.vercel.app/',
+    videoURL: null,
+    isAcademic: false,
+    hasDemo: true,
+  },
+  {
+    id: 3,
     category: 'IA & Datos',
     images: [
       'https://res.cloudinary.com/dbvywv8op/image/upload/v1786835490/avatar_mnkxnq.png',
@@ -180,7 +202,7 @@ const Projects = ref([
     hasDemo: false,
   },
   {
-    id: 3,
+    id: 4,
     category: 'Web',
     images: [
       'https://res.cloudinary.com/dbvywv8op/image/upload/v1739677059/Imagen1_vvftqd.png',
@@ -205,7 +227,7 @@ const Projects = ref([
     hasDemo: true,
   },
   {
-    id: 4,
+    id: 5,
     category: 'IA & Datos',
     images: [
       'https://res.cloudinary.com/dbvywv8op/image/upload/v1786852617/inicio_r2cyba.jpg',
@@ -230,7 +252,7 @@ const Projects = ref([
     hasDemo: false,
   },
   {
-    id: 5,
+    id: 6,
     category: 'Móvil',
     images: [
       'https://res.cloudinary.com/dbvywv8op/image/upload/v1786849947/icon_cdzxtk.png',
@@ -259,7 +281,7 @@ const Projects = ref([
     hasDemo: false,
   },
   {
-    id: 6,
+    id: 7,
     category: 'Sistemas y Arquitectura',
     images: [
       'https://res.cloudinary.com/dbvywv8op/image/upload/v1739747722/PG1_wamzpn.png',
@@ -286,7 +308,7 @@ const Projects = ref([
     hasDemo: false,
   },
   {
-    id: 7,
+    id: 8,
     category: 'Sistemas y Arquitectura',
     images: [
       'https://res.cloudinary.com/dbvywv8op/image/upload/v1739748495/PGO1_plbym4.png',
@@ -313,7 +335,7 @@ const Projects = ref([
     hasDemo: false,
   },
   {
-    id: 8,
+    id: 9,
     category: 'Sistemas y Arquitectura',
     images: [
       'https://res.cloudinary.com/dbvywv8op/image/upload/v1739757348/VJ1_kzqsjr.png',
@@ -334,7 +356,7 @@ const Projects = ref([
     hasDemo: false,
   },
   {
-    id: 9, 
+    id: 10, 
     category: 'Web',
     images: [
       'https://res.cloudinary.com/dbvywv8op/image/upload/v1787152580/home_mdljft.png',
@@ -362,6 +384,8 @@ const Projects = ref([
     hasDemo: false,
   }
 ]);
+
+projectsCount.value = Projects.value.length;
 
 const intervalMap = new Map();
 const selectedCategory = ref('all');
