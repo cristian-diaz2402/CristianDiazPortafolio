@@ -24,7 +24,7 @@
             <span class="font-inter text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">FastAPI</span>
           </div>
 
-          <p class="font-inter pt-6 text-justify max-w-xl text-muted leading-relaxed">
+          <p class="font-inter pt-6 text-justify max-w-xl text-muted leading-relaxed whitespace-pre-line">
             {{ $t('hero.description') }}
           </p>
 

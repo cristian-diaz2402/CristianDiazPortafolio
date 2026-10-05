@@ -45,10 +45,15 @@ const skills = ref([
   { id: 3, icon: 'devicon:typescript', name: 'TypeScript' },
   { id: 4, icon: 'devicon:python', name: 'Python' },
   { id: 5, icon: 'devicon:fastapi', name: 'FastAPI' },
-  { id: 6, icon: 'devicon:postgresql', name: 'PostgreSQL' },
-  { id: 7, icon: 'devicon:tailwindcss', name: 'Tailwind' },
-  { id: 8, icon: 'devicon:git', name: 'Git' },
-  { id: 9, icon: 'devicon:jira', name: 'Jira' },
+  { id: 6, icon: 'devicon:nodejs', name: 'Node.js' },
+  { id: 7, icon: 'devicon:postgresql', name: 'PostgreSQL' },
+  { id: 8, icon: 'devicon:amazonwebservices-wordmark', name: 'AWS' },
+  { id: 9, icon: 'devicon:docker', name: 'Docker' },
+  { id: 10, icon: 'lucide:bot', name: 'Applied AI' },
+  { id: 11, icon: 'devicon:tailwindcss', name: 'Tailwind' },
+  { id: 12, icon: 'devicon:git', name: 'Git' },
+  { id: 13, icon: 'lucide:git-fork', name: 'Fork (Git GUI)' },
+  { id: 14, icon: 'devicon:jira', name: 'Jira' },
 ]);
 
 const infraSkills = computed(() => [

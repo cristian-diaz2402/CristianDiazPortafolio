@@ -164,8 +164,8 @@ const Projects = ref([
     videoActive: false,
     title: 'Pizzería Pedestales — Landing Page & Catálogo Digital',
     title_en: 'Pizzería Pedestales — Landing Page & Digital Catalog',
-    description: 'Transformación digital para un negocio local tradicional. El proyecto resuelve su falta de visibilidad en línea mediante un catálogo interactivo con un fuerte enfoque en SEO técnico, logrando destacar la marca en buscadores locales. Actualmente activo en producción, desplegado sobre Vercel.',
-    description_en: 'Digital transformation for a traditional local business. The project solves their lack of online visibility through an interactive catalog with a strong focus on technical SEO, boosting the brand in local search results. Currently active in production, deployed on Vercel.',
+    description: 'Transformación digital para un negocio local tradicional. El proyecto resuelve su falta de visibilidad en línea mediante un catálogo interactivo con un fuerte enfoque en SEO técnico y la integración de Google Analytics para el análisis de métricas de tráfico real. Actualmente activo en producción, desplegado sobre Vercel.',
+    description_en: 'Digital transformation for a traditional local business. The project solves their lack of online visibility through an interactive catalog with a strong focus on technical SEO and Google Analytics integration for real traffic analysis. Currently active in production, deployed on Vercel.',
     technologies: ['Nuxt 4', 'Vue 3', 'TypeScript', 'Tailwind CSS', 'Vercel'],
     gitURL: null,
     webURL: 'https://pizzeriapedestales.vercel.app/',
@@ -175,6 +175,30 @@ const Projects = ref([
   },
   {
     id: 3,
+    category: 'Web',
+    images: [
+    'https://res.cloudinary.com/dbvywv8op/image/upload/v1791160409/inicio_vqzq4w.png',
+    'https://res.cloudinary.com/dbvywv8op/image/upload/v1791160409/catalogo_nafsxf.png',
+    'https://res.cloudinary.com/dbvywv8op/image/upload/v1791160409/experiencia_wb2dpt.png',
+    'https://res.cloudinary.com/dbvywv8op/image/upload/v1791160409/footer_ybdtws.png',
+    'https://res.cloudinary.com/dbvywv8op/image/upload/v1791160409/lighthouse-google_soiuxw.png',
+    'https://res.cloudinary.com/dbvywv8op/image/upload/v1791160614/experiencia2_aym3zp.png'
+    ],
+    currentImageIndex: 0,
+    videoActive: false,
+    title: 'Floristería Rosi — Landing Page',
+    title_en: 'Floristería Rosi — Landing Page',
+    description: 'Transformación digital para un negocio local. Desarrollada con un enfoque estricto en SEO técnico y Core Web Vitals, logrando métricas de excelencia en Google Lighthouse (100% SEO, 100% Buenas Prácticas, 98% Rendimiento). Destaca por su optimización extrema con un LCP de 0.8s, un tiempo de bloqueo nulo (0 ms TBT) y la integración de Google Analytics para monitorear tráfico real.',
+    description_en: 'Digital transformation for a local business. Developed with a strict focus on technical SEO and Core Web Vitals, achieving outstanding Google Lighthouse metrics (100% SEO, 100% Best Practices, 98% Performance). It stands out for its extreme optimization with a 0.8s LCP, 0ms Total Blocking Time (TBT), and Google Analytics integration for real traffic monitoring.',
+    technologies: ['Astro', 'TypeScript', 'Tailwind CSS', 'Motion'],
+    gitURL: null,
+    webURL: 'https://floristeriarosi.vercel.app/',
+    videoURL: null,
+    isAcademic: false,
+    hasDemo: true,
+  },
+  {
+    id: 4,
     category: 'IA & Datos',
     images: [
       'https://res.cloudinary.com/dbvywv8op/image/upload/v1786835490/avatar_mnkxnq.png',
@@ -202,7 +226,7 @@ const Projects = ref([
     hasDemo: false,
   },
   {
-    id: 4,
+    id: 5,
     category: 'Web',
     images: [
       'https://res.cloudinary.com/dbvywv8op/image/upload/v1739677059/Imagen1_vvftqd.png',
@@ -227,7 +251,7 @@ const Projects = ref([
     hasDemo: true,
   },
   {
-    id: 5,
+    id: 6,
     category: 'IA & Datos',
     images: [
       'https://res.cloudinary.com/dbvywv8op/image/upload/v1786852617/inicio_r2cyba.jpg',
@@ -252,7 +276,7 @@ const Projects = ref([
     hasDemo: false,
   },
   {
-    id: 6,
+    id: 7,
     category: 'Móvil',
     images: [
       'https://res.cloudinary.com/dbvywv8op/image/upload/v1786849947/icon_cdzxtk.png',
@@ -281,7 +305,7 @@ const Projects = ref([
     hasDemo: false,
   },
   {
-    id: 7,
+    id: 8,
     category: 'Sistemas y Arquitectura',
     images: [
       'https://res.cloudinary.com/dbvywv8op/image/upload/v1739747722/PG1_wamzpn.png',
@@ -308,7 +332,7 @@ const Projects = ref([
     hasDemo: false,
   },
   {
-    id: 8,
+    id: 9,
     category: 'Sistemas y Arquitectura',
     images: [
       'https://res.cloudinary.com/dbvywv8op/image/upload/v1739748495/PGO1_plbym4.png',
@@ -335,7 +359,7 @@ const Projects = ref([
     hasDemo: false,
   },
   {
-    id: 9,
+    id: 10,
     category: 'Sistemas y Arquitectura',
     images: [
       'https://res.cloudinary.com/dbvywv8op/image/upload/v1739757348/VJ1_kzqsjr.png',
@@ -356,7 +380,7 @@ const Projects = ref([
     hasDemo: false,
   },
   {
-    id: 10, 
+    id: 11, 
     category: 'Web',
     images: [
       'https://res.cloudinary.com/dbvywv8op/image/upload/v1787152580/home_mdljft.png',

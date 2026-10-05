@@ -8,7 +8,7 @@
   },
   "hero": {
     "role": "Frontend Developer · E2E Quality",
-    "description": "Computer Science Engineer recently graduated from EPN, with two years of real production experience at Wanqara. I developed active frontend modules with Vue.js and took ownership of the entire E2E suite using Playwright: test architecture, CI pipelines in GitHub Actions, and resolving race conditions between environments. I specialize in building solid interfaces and ensuring they reach production bug-free.",
+    "description": "Computer Science Engineer and recent EPN graduate with two years of hands-on production experience at Wanqara. I have developed frontend modules using Vue.js and taken ownership of the E2E testing suite with Playwright, focusing on software quality, stability, and reliability.\n\nI incorporate AI and automation tools such as MCP, Rules, Skills, and Gemini into my development workflow to accelerate research, debugging, and problem-solving while maintaining full technical ownership and independent decision-making.\n\nMy focus is on building robust, maintainable, production-ready interfaces, combining frontend development, test automation, and solid engineering practices to deliver reliable software.",
     "view_projects": "View Projects",
     "download_cv": "Download CV",
     "photo_alt": "Cristian Diaz Photography"
@@ -34,9 +34,9 @@
   },
   "about": {
     "title": "About me",
-    "p1": "Recently graduated in Computer Science Engineering from EPN, with two years of real-world experience at Wanqara developing production frontend modules and taking responsibility for the team's quality infrastructure: E2E test suite with Playwright, CI pipelines in GitHub Actions, and resolving race conditions across environments.",
-    "p2": "For my thesis, I built an academic assistant with RAG architecture deployed on Linux with Nginx and SSL. I chose RAG over fine-tuning because institutional regulations change frequently, and updating embeddings in Qdrant is trivial compared to retraining a model. The system handled 26,000 concurrent queries with zero failures and 23 ms latency in cache using Redis.",
-    "p3": "I am seeking a junior role where I can continue developing interfaces and contribute to software quality from the very beginning of the lifecycle, not as an afterthought.",
+    "p1": "I’m a Computer Science Engineer and recent graduate of EPN, with two years of professional experience at Wanqara working with software in production. My experience has primarily focused on frontend development with Vue.js and software quality through E2E automation with Playwright, CI pipelines using GitHub Actions, and resolving concurrency issues across different environments.",
+    "p2": "For my thesis, I developed an academic assistant based on a RAG architecture, deployed on Linux with Nginx and SSL. I chose this approach because institutional regulations can change frequently, making a retrieval-based architecture a practical way to keep the knowledge base up to date without retraining the model. I used Qdrant for embedding storage and retrieval, complemented by Redis for caching.",
+    "p3": "I’m looking to continue growing in roles where I can combine frontend development, automation, and software quality from the early stages of the development lifecycle. I incorporate AI tools and autonomous agents into my workflow to accelerate research, debugging, and problem-solving while maintaining technical judgment, autonomy, and strong software engineering fundamentals.",
     "title2": "Education & Facts",
     "edu_inst": "Escuela Politécnica Nacional",
     "edu_degree": "Computer Science Engineering",
